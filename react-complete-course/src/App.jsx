@@ -1,5 +1,6 @@
 import Header from "./components/header/header";
 import CoreConcept from "./components/core-concept/core-concept";
+import TabButton from "./components/tab-button";
 import { CORE_CONCEPTS } from "./data";
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
     <div>
       <Header />
       <main>
-        <div id="core-concepts">
+        <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
             {/* Longer props syntax */}
@@ -25,7 +26,13 @@ function App() {
             <CoreConcept {...CORE_CONCEPTS[2]} />
             <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
-        </div>
+        </section>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton>Components</TabButton>
+          </menu>
+        </section>
       </main>
     </div>
   );
