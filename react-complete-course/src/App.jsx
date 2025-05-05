@@ -1,5 +1,5 @@
 import Header from "./components/header/header";
-import CoreConcept from "./components/core-concept";
+import CoreConcept from "./components/core-concept/core-concept";
 import { CORE_CONCEPTS } from "./data";
 
 function App() {
@@ -7,8 +7,8 @@ function App() {
     <div>
       <Header />
       <main>
-        <h2>Core Concepts</h2>
         <div id="core-concepts">
+          <h2>Core Concepts</h2>
           <ul>
             {/* Longer props syntax */}
             <CoreConcept
