@@ -4,6 +4,9 @@ import TabButton from "./components/tab-button";
 import { CORE_CONCEPTS } from "./data";
 
 function App() {
+  const handleSelect = () => {
+    console.log("Tab button clicked!!");
+  };
   return (
     <div>
       <Header />
@@ -30,7 +33,10 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton>Components</TabButton>
+            <TabButton onButtonClick={handleSelect}>Components</TabButton>
+            <TabButton onButtonClick={handleSelect}>JSX</TabButton>
+            <TabButton onButtonClick={handleSelect}>Props</TabButton>
+            <TabButton onButtonClick={handleSelect}>State</TabButton>
           </menu>
         </section>
       </main>
