@@ -5,6 +5,8 @@ import { CORE_CONCEPTS, EXAMPLES } from "./data";
 import { useState } from "react";
 
 function App() {
+  const coreConcepts = ["components", "jsx", "props", "state"];
+
   const [selectedTopic, setSelectedTopic] = useState();
 
   const handleSelect = (topic) => {
@@ -18,49 +20,25 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            {/* Longer props syntax */}
-            <CoreConcept
-              title={CORE_CONCEPTS[0].title}
-              description={CORE_CONCEPTS[0].description}
-              img={CORE_CONCEPTS[0].img}
-            />
-            <CoreConcept
-              title={CORE_CONCEPTS[1].title}
-              description={CORE_CONCEPTS[1].description}
-              img={CORE_CONCEPTS[1].img}
-            />
-            {/* Shorter props syntax */}
-            <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} />
+            {CORE_CONCEPTS.map((conceptItem) => {
+              return <CoreConcept key={conceptItem.title} {...conceptItem} />;
+            })}
           </ul>
         </section>
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton
-              isSelected={selectedTopic === "components"}
-              onButtonClick={() => handleSelect("components")}
-            >
-              Components
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic === "jsx"}
-              onButtonClick={() => handleSelect("jsx")}
-            >
-              JSX
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic === "props"}
-              onButtonClick={() => handleSelect("props")}
-            >
-              Props
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic === "state"}
-              onButtonClick={() => handleSelect("state")}
-            >
-              State
-            </TabButton>
+            {coreConcepts.map((concept) => {
+              return (
+                <TabButton
+                  key={concept}
+                  isSelected={selectedTopic === concept}
+                  onButtonClick={() => handleSelect(concept)}
+                >
+                  {EXAMPLES[concept].title}
+                </TabButton>
+              );
+            })}
           </menu>
 
           {!selectedTopic ? (

@@ -4,7 +4,7 @@ import jsxImg from "./assets/jsx-ui.png";
 import stateImg from "./assets/state-mgmt.png";
 
 export const CORE_CONCEPTS = [
-    {
+   {
       img: componentImg,
       title: "Components",
       description:
