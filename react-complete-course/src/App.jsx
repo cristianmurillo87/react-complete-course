@@ -2,11 +2,15 @@ import Header from "./components/header/header";
 import CoreConcept from "./components/core-concept/core-concept";
 import TabButton from "./components/tab-button";
 import { CORE_CONCEPTS } from "./data";
+import { useState } from "react";
 
 function App() {
-  const handleSelect = (concept) => {
-    console.log(`Clicked ${concept}`);
+  const [selectedTopic, setSelectedTopic] = useState("Please select a topic");
+
+  const handleSelect = (topic) => {
+    setSelectedTopic(topic);
   };
+
   return (
     <div>
       <Header />
@@ -45,6 +49,7 @@ function App() {
             </TabButton>
           </menu>
         </section>
+        {selectedTopic}
       </main>
     </div>
   );
